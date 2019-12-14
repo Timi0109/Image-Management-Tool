@@ -28,7 +28,7 @@ public class Controller implements sample{
     ComboBox imageCombo;
     @FXML
     ComboBox colorCombo;
-
+    private File selectedFile;
     @Override
     public void setImage() {
         imgview = new ImageView();
@@ -45,7 +45,7 @@ public class Controller implements sample{
                     new FileChooser.ExtensionFilter("PNG", "*.png")
             );
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
-            File selectedFile = fileChooser.showOpenDialog(null);
+            selectedFile = fileChooser.showOpenDialog(null);
             Image img = SwingFXUtils.toFXImage(ImageIO.read(selectedFile), null);
             imgview.setImage(img);
             imgview.setFitHeight(100);
@@ -63,25 +63,28 @@ public class Controller implements sample{
     private void buttonClickedTwo(ActionEvent event){
         try {
             //-----Color filter-----------------
+
             //blue filter
-            if (colorCombo.getValue().equals("blue")){
-                Color targetColor = Color.web("#ff00ffff");
-                ColorAdjust colorAdjust = new ColorAdjust();
-                double hue = targetColor.getHue();
-                colorAdjust.setHue(hue);
-                imgview.setEffect(colorAdjust);
-            }
-            //red filter
-            if (colorCombo.getValue().equals("red")){
-                ColorAdjust colorAdjust = new ColorAdjust();
-                colorAdjust.setHue(-0.2);
-                imgview.setEffect(colorAdjust);
-            }
-            //green filter
-            if (colorCombo.getValue().equals("green")){
-                ColorAdjust colorAdjust = new ColorAdjust();
-                colorAdjust.setHue(0.4);
-                imgview.setEffect(colorAdjust);
+            if (colorCombo.getValue() != null) {
+                if (colorCombo.getValue().equals("blue")) {
+                    Color targetColor = Color.web("#ff00ffff");
+                    ColorAdjust colorAdjust = new ColorAdjust();
+                    double hue = targetColor.getHue();
+                    colorAdjust.setHue(hue);
+                    imgview.setEffect(colorAdjust);
+                }
+                //red filter
+                if (colorCombo.getValue().equals("red")) {
+                    ColorAdjust colorAdjust = new ColorAdjust();
+                    colorAdjust.setHue(-0.2);
+                    imgview.setEffect(colorAdjust);
+                }
+                //green filter
+                if (colorCombo.getValue().equals("green")) {
+                    ColorAdjust colorAdjust = new ColorAdjust();
+                    colorAdjust.setHue(0.4);
+                    imgview.setEffect(colorAdjust);
+                }
             }
 
             //--------Convert Image format, then save to user file-----------------
@@ -90,13 +93,13 @@ public class Controller implements sample{
                 ImageIO.write(image, "png", new File( "converted.png"));
             }
             if (imageCombo.getValue().equals("JPG")){
-                ImageIO.write(bmpImg, "jpg",  new File("converted.jpg"));
+                ImageIO.write(image, "jpg", new File( "converted.jpg"));
             }
             if (imageCombo.getValue().equals("GIF")){
                 ImageIO.write(image, "gif",  new File("converted.gif"));
             }
             if (imageCombo.getValue().equals("BMP")){
-                ImageIO.write(bmpImg, "bmp",  new File( "converted.bmp"));
+                ImageIO.write(image, "bmp",  new File( "converted.bmp"));
             }
             if (imageCombo.getValue().equals("TIFF")){
                 ImageIO.write(image, "tiff",  new File("converted.tiff"));
@@ -104,8 +107,7 @@ public class Controller implements sample{
             downloadTips.setText("Download successfully");
         }catch (IOException e){
             downloadTips.setText("Download failed! Try another image.");
-            Logger.getLogger(
-                    Controller.class.getName()).log(Level.SEVERE, null, e);
+            e.printStackTrace();
         }
     }
 
