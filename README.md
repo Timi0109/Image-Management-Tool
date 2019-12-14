@@ -5,3 +5,4 @@
 3. Allow user to apply various filters (color tints, black-and-white, etc.) to image(s)
 
 # Don't speak, just show
+check out tests screenshots folder, it contains screenshot of each step, various filters and various image formats
