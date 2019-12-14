@@ -85,8 +85,7 @@ public class Controller implements sample{
             }
 
             //--------Convert Image format, then save to user file-----------------
-            BufferedImage image = SwingFXUtils.fromFXImage(imgview.getImage(), null);
-            BufferedImage bmpImg = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+            BufferedImage image = ImageIO.read(selectedFile);
             if (imageCombo.getValue().equals("PNG")){
                 ImageIO.write(image, "png", new File( "converted.png"));
             }
