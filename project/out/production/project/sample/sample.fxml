@@ -1,0 +1,65 @@
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="sample.Controller"
+          alignment="center" hgap="10" vgap="10" styleClass="root">
+    <padding><Insets top="25" right="25" bottom="25" left="25" /></padding>
+
+    <Text id="toolText" text="Image Management Tool"  GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <Button fx:id="uploadButton" text="Upload Photo"
+            GridPane.columnIndex="0" GridPane.rowIndex="1"
+            onAction="#buttonClicked" defaultButton="true"/>
+    <ImageView fx:id="imgview"
+               pickOnBounds="true" preserveRatio="true"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+
+    <Text fx:id="propertyText" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="Select new format:"
+           GridPane.columnIndex="0"  GridPane.rowIndex="3"/>
+   <ComboBox fx:id="imageCombo"
+             GridPane.columnIndex="1"  GridPane.rowIndex="3"
+            promptText="select" >
+       <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="PNG" />
+                <String fx:value="JPG" />
+                <String fx:value="GIF" />
+                <String fx:value="BMP" />
+                <String fx:value="TIFF" />
+            </FXCollections>
+       </items>
+   </ComboBox>
+
+    <Label text="Optional, change color: "  GridPane.columnIndex="0"  GridPane.rowIndex="4"/>
+    <ComboBox fx:id="colorCombo" GridPane.columnIndex="1"  GridPane.rowIndex="4"
+              promptText="select">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="blue" />
+                <String fx:value="red" />
+                <String fx:value="green" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button fx:id="downloadButton" text="Download converted photo"
+            GridPane.columnIndex="0" GridPane.rowIndex="5"
+            onAction="#buttonClickedTwo">
+    </Button>
+    <Text fx:id="downloadTips" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+
+    <stylesheets>
+        <URL value="@sample.css" />
+    </stylesheets>
+
+</GridPane>
