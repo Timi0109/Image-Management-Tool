@@ -5,6 +5,6 @@
 3. Allow user to apply various filters (color tints, black-and-white, etc.) to image(s)
 
 # Don't speak, just show!
-Check out tests screenshots folder, it contains screenshot of each step, various filters and various image formats
+Check out tests screenshots folder, it contains screenshots of each step, various filters and various image formats
 
 ![sss](https://github.com/Timi0109/Image-Management-Tool/raw/master/Test%20Screenshots/initialize.jpeg)
