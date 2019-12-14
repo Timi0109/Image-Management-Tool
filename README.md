@@ -6,4 +6,5 @@
 
 # Don't speak, just show
 check out tests screenshots folder, it contains screenshot of each step, various filters and various image formats
+
 ![sss](https://github.com/Timi0109/Image-Management-Tool/raw/master/Test%20Screenshots/initialize.jpeg)
