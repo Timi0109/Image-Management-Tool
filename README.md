@@ -4,7 +4,7 @@
 2. Use ImageIO to convert image to various formats, allow users to download converted images
 3. Allow user to apply various filters (color tints, black-and-white, etc.) to image(s)
 
-# Don't speak, just show
-check out tests screenshots folder, it contains screenshot of each step, various filters and various image formats
+# Don't speak, just show!
+Check out tests screenshots folder, it contains screenshot of each step, various filters and various image formats
 
 ![sss](https://github.com/Timi0109/Image-Management-Tool/raw/master/Test%20Screenshots/initialize.jpeg)
