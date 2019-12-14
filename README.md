@@ -5,4 +5,5 @@
 3. Allow user to apply various filters (color tints, black-and-white, etc.) to image(s)
 
 # Don't speak, just show
-
+![Image of initial]
+(https://github.com/Timi0109/Image-Management-Tool/blob/master/Test%20Screenshots/initialize.jpeg)
